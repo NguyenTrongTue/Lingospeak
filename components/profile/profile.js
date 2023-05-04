@@ -10,8 +10,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/Foundation";
+import { useSelector } from "react-redux";
 
 export default function Profile(props) {
+  const { currentUser } = useSelector((state) => state.user);
+  const { username, birthday, email, phone, gender, bio } = currentUser;
   return (
     <View style={profileStyle.container}>
       <View style={profileStyle.center}>
@@ -23,35 +26,35 @@ export default function Profile(props) {
                 source={require("../../assets/avatar.png")}
               />
             </View>
-            <Text style={profileStyle.username}>TRONG TUE</Text>
+            <Text style={profileStyle._username}>{username}</Text>
           </View>
-          <Icon
+          <Pressable
             style={profileStyle.icon}
-            name="clipboard-pencil"
-            size={40}
-            color="#800080"
-          />
+            onPress={() => props.navigation.navigate("EditProfile")}
+          >
+            <Icon name="clipboard-pencil" size={40} color="#800080" />
+          </Pressable>
         </View>
         <View style={profileStyle.middle}>
           <View style={profileStyle.item}>
             <Text style={profileStyle.label}>Họ và tên:</Text>
-            <Text style={profileStyle.value}>Nguyễn Trọng Tue</Text>
+            <Text style={profileStyle.value}>{username}</Text>
           </View>
           <View style={profileStyle.item}>
             <Text style={profileStyle.label}>Giới tính:</Text>
-            <Text style={profileStyle.value}>Nam</Text>
+            <Text style={profileStyle.value}>{gender}</Text>
           </View>
           <View style={profileStyle.item}>
             <Text style={profileStyle.label}>Ngày sinh</Text>
-            <Text style={profileStyle.value}>01/06/2002</Text>
+            <Text style={profileStyle.value}>{birthday}2</Text>
           </View>
           <View style={profileStyle.item}>
             <Text style={profileStyle.label}>Email:</Text>
-            <Text style={profileStyle.value}>tuetn@gmail.com</Text>
+            <Text style={profileStyle.value}>{email}</Text>
           </View>
           <View style={profileStyle.item}>
             <Text style={profileStyle.label}>Điện thoại:</Text>
-            <Text style={profileStyle.value}>035937609</Text>
+            <Text style={profileStyle.value}>{phone}</Text>
           </View>
           <View style={profileStyle.desc}>
             <Text style={profileStyle.descLabel}>Mô tả:</Text>
@@ -60,8 +63,7 @@ export default function Profile(props) {
               numberOfLines={2}
               ellipsizeMode="tail"
             >
-              Đây là một số môt tả về bản thân tôi. Here are a few lines
-              describing myself
+              {bio}
             </Text>
           </View>
         </View>

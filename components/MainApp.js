@@ -10,6 +10,8 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Home from "./home/home";
 import Test from "./test/test";
+import History from "./history/history";
+
 import {
   Select,
   Box,
@@ -18,11 +20,16 @@ import {
   NativeBaseProvider,
 } from "native-base";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import IconBack from "react-native-vector-icons/MaterialIcons";
+
 import Level from "./levels/level";
 import Result from "./result/result";
 import Speak from "./Voice";
 import { useSelector } from "react-redux";
 import Profile from "./profile/profile";
+import Practice from "./practice/Practice";
+import prePractice from "./prePractice/prePractice";
+import EditProfile from "./editProfile/EditProfile";
 
 const Stack = createStackNavigator();
 export default function MainApp() {
@@ -112,6 +119,88 @@ export default function MainApp() {
             component={Test}
             options={{
               headerTitle: "Kiểm tra",
+              headerStyle: {
+                height: 90,
+                backgroundColor: "#800080",
+              },
+              headerTitleAlign: "center",
+              headerTitleStyle: {
+                fontSize: 24,
+                fontWeight: "700",
+              },
+              headerBackImage: () => (
+                <Icon name="home" size={24} color="white" />
+              ),
+            }}
+          />
+          <Stack.Screen
+            name="History"
+            component={History}
+            options={({ navigation }) => ({
+              headerTitle: "Lịch sử thi",
+              headerStyle: {
+                height: 90,
+                backgroundColor: "#800080",
+              },
+              headerTitleAlign: "center",
+              headerTitleStyle: {
+                fontSize: 24,
+                fontWeight: "700",
+              },
+              headerBackImage: () => (
+                <Pressable onPress={() => navigation.navigate("Home")}>
+                  <Icon name="home" size={24} color="white" />
+                </Pressable>
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="PrePractice"
+            component={prePractice}
+            options={({ navigation }) => ({
+              headerTitle: "Luyện câu",
+              headerStyle: {
+                height: 90,
+                backgroundColor: "#800080",
+              },
+              headerTitleAlign: "center",
+              headerTitleStyle: {
+                fontSize: 24,
+                fontWeight: "700",
+              },
+              headerBackImage: () => (
+                <Pressable onPress={() => navigation.navigate("Practice")}>
+                  <IconBack name="arrow-back" size={24} color="white" />
+                </Pressable>
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="EditProfile"
+            component={EditProfile}
+            options={({ navigation }) => ({
+              headerTitle: "Chỉnh sửa hồ sơ",
+              headerStyle: {
+                height: 90,
+                backgroundColor: "#800080",
+              },
+              headerTitleAlign: "center",
+              headerTitleStyle: {
+                fontSize: 24,
+                fontWeight: "700",
+              },
+              headerBackImage: () => (
+                <Pressable onPress={() => navigation.navigate("Profile")}>
+                  <IconBack name="arrow-back" size={24} color="white" />
+                </Pressable>
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="Practice"
+            component={Practice}
+            options={{
+              headerTitle: "Luyện tập",
               headerStyle: {
                 height: 90,
                 backgroundColor: "#800080",

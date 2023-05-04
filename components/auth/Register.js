@@ -163,7 +163,7 @@ export default function Register(props) {
 
           <Pressable style={registerStyle.button} onPress={handleSubmit}>
             {!loading ? (
-              <Text style={registerStyle.buttonText}>Register</Text>
+              <Text style={registerStyle.buttonText}>Đăng nhập</Text>
             ) : (
               <NativeBaseProvider>
                 <Center flex={1} px="3">

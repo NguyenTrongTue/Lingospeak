@@ -5,7 +5,6 @@ const profileStyle = StyleSheet.create({
     flex: 1,
     display: "flex",
     alignItems: "center",
-    // justifyContent: "center",
     position: "relative",
     backgroundColor: "#C8BFE7",
   },
@@ -75,7 +74,7 @@ const profileStyle = StyleSheet.create({
     padding: 10,
     backgroundColor: "white",
     color: "#800080",
-    fontWeight: 700,
+    // fontWeight: 700,
     fontSize: 18,
   },
   desc: {
@@ -102,8 +101,20 @@ const profileStyle = StyleSheet.create({
   descValue: {
     color: "#800080",
     fontWeight: 700,
-    fontSize: 16,
-    marginLeft: 12,
+    fontSize: 14,
+  },
+  btn: {
+    width: "100%",
+    backgroundColor: "#7E1B7E",
+    borderRadius: 8,
+    padding: 10,
+    marginTop: 20,
+  },
+  btnLabel: {
+    color: "white",
+    fontWeight: 600,
+    fontSize: 22,
+    textAlign: "center",
   },
 });
 

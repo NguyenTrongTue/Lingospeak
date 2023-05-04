@@ -9,7 +9,6 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function Home(props) {
   return (
@@ -29,20 +28,27 @@ export default function Home(props) {
             />
           </TouchableOpacity>
 
-          <View style={homeStyle.featureItem}>
+          <TouchableOpacity
+            style={homeStyle.featureItem}
+            onPress={() => props.navigation.navigate("History")}
+          >
             <Text style={homeStyle.featureText}>Lịch sử kiểm tra</Text>
             <Image
               style={homeStyle.featureImage}
               source={require("../../assets/lich-su.png")}
             />
-          </View>
-          <View style={homeStyle.featureItem}>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={homeStyle.featureItem}
+            onPress={() => props.navigation.navigate("Practice")}
+          >
             <Text style={homeStyle.featureText}>Luyện tập</Text>
             <Image
               style={homeStyle.featureImage}
               source={require("../../assets/luyentap.png")}
             />
-          </View>
+          </TouchableOpacity>
           <TouchableOpacity
             style={homeStyle.featureItem}
             onPress={() => props.navigation.navigate("Test")}
